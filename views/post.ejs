@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/blogPage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- <div class="container"> -->
+            <div class="header_nav">
+              <div class="header_logo">
+                <h3>Blogging platform</h3>
+              </div>
+              <div class="search_bar">
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search">
+                </div>
+                <button>Log out</button>
+              </div>
+              
+            </div>
+          <!-- </div> -->
+    </header>
+    <section>
+       <div class="container">
+          <div class="side_nav">
+            <div class="side_nav_btn">
+              <button>profile</button>
+                <button id="createBtn">create blog</button>
+                
+            </div>
+          </div>
+          <div class="blog_content_sec">
+            <div class="blog_adding">
+               <h2>Latest posts</h2>
+               <ul class="article_ul">
+              <% if(locals.posts) {%>
+
+                <% posts.forEach(post => { %>
+                  <li>
+                   <span>createdBy</span> <%= post.author %>
+                   <span> <%= post.title %></span> <br>
+                    <%= post.content %>
+                  </li>
+                <% }) %>
+
+                <% } %>
+       
+               </ul>
+            </div>
+          </div>
+       </div>
+    </section>
+
+ <div class="card" id="card" style="width: 600px">
+  <h5 class="card-title">create blog</h5>
+  <p class="card-text">Text to build on the card title and make up the bulk of the card's content.</p>
+  <div class="card_body">
+    <form action="/post" method="post">
+    <div class="text_titile">
+      <label for="">Title</label>
+      <input class="form-control" type="text" name="title">
+    </div>
+    <div class="text_content">
+      <label for="floatingTextarea">Content</label>
+      <textarea class="form-control" placeholder="content here...." id="floatingTextarea" name="content"></textarea>
+    </div>
+    <div class="card_btn">
+      <button id="cancel">cancel</button>
+      <button>Add blog</button>
+    </div>
+  </form>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<script src="/js/blog.js"></script>
+</body>
+</html>

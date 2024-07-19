@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <header>
+        <!-- <div class="container"> -->
+            <div class="header_nav">
+              <div class="header_logo">
+                <h3>Blogging platform</h3>
+              </div>
+              <div class="search_bar">
+                <div class="search_icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search">
+                </div>
+            
+              </div>
+              
+            </div>
+          <!-- </div> -->
+    </header>
+    <div class="container">
+      <!-- <div class="blog_content_sec"> -->
+        <div class="blog_adding">
+           <h2>MY profile</h2>
+           <ul class="article_ul">
+          <% if(locals.posts) {%>
+
+            <% posts.forEach(post => { %>
+              <li>
+                <!-- <%= post.author %> -->
+               <span> <%= post.title %></span> <br>
+                <%= post.content %>
+              </li>
+            <% }) %>
+
+            <% } %>
+   
+           </ul>
+        </div>
+      <!-- </div> -->
+    </div>
+</body>
+</html>
